@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * titre: Denombrement
+ * auteur: magyanin
+ * date création: 27/10/2020
+ * date dernière modification: 27/10/2020
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +31,10 @@ namespace Denombrements
 
                 if (c == 1)
                 {
-                    Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                    int n = int.Parse(Console.ReadLine()); // saisir le nombre
-                                                           // calcul de r
+                    //saisie du nombre d'éléments à gérer
+                    Console.Write("nombre total d'éléments à gérer = "); 
+                    int n = int.Parse(Console.ReadLine()); 
+                    //calcul de r                                       
                     long r = 1;
                     for (int k = 1; k <= n; k++)
                         r *= k;
@@ -36,23 +44,26 @@ namespace Denombrements
                 {
                     if (c == 2)
                     {
-                        Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                        int t = int.Parse(Console.ReadLine()); // saisir le nombre
-                        Console.Write("nombre d'éléments dans le sous ensemble = "); // le sous ensemble
-                        int n = int.Parse(Console.ReadLine()); // saisir le nombre
+                        //saisie du nombre d'éléments à gérer
+                        Console.Write("nombre total d'éléments à gérer = "); 
+                        int t = int.Parse(Console.ReadLine());
+                        //saisie du nombre d'éléments à gérer dans le sous ensemble
+                        Console.Write("nombre d'éléments dans le sous ensemble = ");
+                        int n = int.Parse(Console.ReadLine()); 
                         // calcul de r
                         long r = 1;
                         for (int k = (t - n + 1); k <= t; k++)
                             r *= k;
-                        //Console.WriteLine("résultat = " + (r1 / r2));
                         Console.WriteLine("A(" + t + "/" + n + ") = " + r);
                     }
                     else
                     {
-                        Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                        int t = int.Parse(Console.ReadLine()); // saisir le nombre
-                        Console.Write("nombre d'éléments dans le sous ensemble = "); // le sous ensemble
-                        int n = int.Parse(Console.ReadLine()); // saisir le nombre
+                        //saisie du nombre d'éléments à gérer
+                        Console.Write("nombre total d'éléments à gérer = ");
+                        int t = int.Parse(Console.ReadLine());
+                        //saisie du nombre d'éléments à gérer dans le sous ensemble
+                        Console.Write("nombre d'éléments dans le sous ensemble = ");
+                        int n = int.Parse(Console.ReadLine());
                         // calcul de r1
                         long r1 = 1;
                         for (int k = (t - n + 1); k <= t; k++)
@@ -61,8 +72,6 @@ namespace Denombrements
                         long r2 = 1;
                         for (int k = 1; k <= n; k++)
                             r2 *= k;
-                        // calcul de r3
-                        //Console.WriteLine("résultat = " + (r1 / r2));
                         Console.WriteLine("C(" + t + "/" + n + ") = " + (r1 / r2));
                     }
                 }

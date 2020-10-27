@@ -27,7 +27,9 @@ namespace Denombrements
                 Console.Write("Choix :                            ");
                 c = int.Parse(Console.ReadLine());
 
-                if (c == 0) { Environment.Exit(0); }
+                if (c == 0) {
+                    Environment.Exit(0);
+                }
 
                 if (c == 1)
                 {
@@ -37,7 +39,9 @@ namespace Denombrements
                     //calcul de r                                       
                     long r = 1;
                     for (int k = 1; k <= n; k++)
+                    {
                         r *= k;
+                    }
                     Console.WriteLine(n + "! = " + r);
                 }
                 else
@@ -53,7 +57,9 @@ namespace Denombrements
                         // calcul de r
                         long r = 1;
                         for (int k = (t - n + 1); k <= t; k++)
+                        {
                             r *= k;
+                        }
                         Console.WriteLine("A(" + t + "/" + n + ") = " + r);
                     }
                     else
@@ -67,11 +73,15 @@ namespace Denombrements
                         // calcul de r1
                         long r1 = 1;
                         for (int k = (t - n + 1); k <= t; k++)
+                        {
                             r1 *= k;
+                        }
                         // calcul de r2
                         long r2 = 1;
                         for (int k = 1; k <= n; k++)
+                        {
                             r2 *= k;
+                        }
                         Console.WriteLine("C(" + t + "/" + n + ") = " + (r1 / r2));
                     }
                 }

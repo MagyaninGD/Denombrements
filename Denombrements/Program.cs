@@ -6,6 +6,7 @@
  */
 
 using System;
+using System.Security.Cryptography;
 
 namespace Denombrements
 {
@@ -33,27 +34,19 @@ namespace Denombrements
                     case 1:
                         //saisie du nombre d'éléments à gérer
                         nbElements = saisie("nombre total d'éléments à gérer =");
-                        //calcul de r                                       
+                        //calcul de r
                         r = 1;
-                        for (int k = 1; k <= nbElements; k++)
-                        {
-                            r *= k;
-                        }
+                        r = piProduit(1, nbElements, r);
                         Console.WriteLine(nbElements + "! = " + r);
                         break;
                     case 2:
                         //saisie du nombre d'éléments à gérer
-                        Console.Write("nombre total d'éléments à gérer = ");
-                        nbElements = int.Parse(Console.ReadLine());
+                        nbElements = saisie("nombre total d'éléments à gérer");
                         //saisie du nombre d'éléments à gérer dans le sous ensemble
-                        Console.Write("nombre d'éléments dans le sous ensemble = ");
-                        nbSousEnsemble = int.Parse(Console.ReadLine());
+                        nbSousEnsemble = saisie("nombre total d'éléments dans le sous  ensemble =");
                         // calcul de r
                         r = 1;
-                        for (int k = (nbElements - nbSousEnsemble + 1); k <= nbElements; k++)
-                        {
-                            r *= k;
-                        }
+                        r = piProduit((nbElements - nbSousEnsemble + 1), nbElements, r);
                         Console.WriteLine("A(" + nbElements + "/" + nbSousEnsemble + ") = " + r);
                         break;
                     case 3:
@@ -65,16 +58,10 @@ namespace Denombrements
                         nbSousEnsemble = saisie("nombre d'éléments dans le sous ensemble = ");
                         // calcul de r1
                         long r1 = 1;
-                        for (int k = (nbElements - nbSousEnsemble + 1); k <= nbElements; k++)
-                        {
-                            r1 *= k;
-                        }
+                        r1 = piProduit((nbElements - nbSousEnsemble + 1), nbElements, r1);
                         // calcul de r2
                         long r2 = 1;
-                        for (int k = 1; k <= nbSousEnsemble; k++)
-                        {
-                            r2 *= k;
-                        }
+                        r2 = piProduit(1, nbSousEnsemble, r2);
                         Console.WriteLine("C(" + nbElements + "/" + nbSousEnsemble + ") = " + (r1 / r2));
                         break;
                     default:
@@ -96,6 +83,22 @@ namespace Denombrements
             Console.Write(message);
             int number = int.Parse(Console.ReadLine());
             return number;
+        }
+
+        /// <summary>
+        /// Multiplication d'une suite d'entier
+        /// </summary>
+        /// <param name="valDepart">La valeur de départ</param>
+        /// <param name="valFin">La valeur finale</param>
+        /// <param name="produit">La valeur du produit de base</param>
+        /// <returns>Le produit de tous les facteurs indexés de valDébut à valFin</returns>
+        static long piProduit(int valDepart,int valFin, long produit)
+        {
+            for (int k = valDepart; k <= valFin; k++)
+            {
+                produit *= k;
+            }
+            return produit;
         }
 
     }

@@ -32,34 +32,23 @@ namespace Denombrements
                         Environment.Exit(0);
                         break;
                     case 1:
-                        //saisie du nombre d'éléments à gérer
                         nbElements = saisie("nombre total d'éléments à gérer =");
-                        //calcul de r
                         r = 1;
                         r = piProduit(1, nbElements, r);
                         Console.WriteLine(nbElements + "! = " + r);
                         break;
                     case 2:
-                        //saisie du nombre d'éléments à gérer
                         nbElements = saisie("nombre total d'éléments à gérer");
-                        //saisie du nombre d'éléments à gérer dans le sous ensemble
-                        nbSousEnsemble = saisie("nombre total d'éléments dans le sous  ensemble =");
-                        // calcul de r
+                        nbSousEnsemble = saisie("nombre total d'éléments dans le sous  ensemble =");                       
                         r = 1;
                         r = piProduit((nbElements - nbSousEnsemble + 1), nbElements, r);
                         Console.WriteLine("A(" + nbElements + "/" + nbSousEnsemble + ") = " + r);
                         break;
                     case 3:
-                        //saisie du nombre d'éléments à gérer
                         nbElements = saisie("nombre total d'éléments à gérer = ");
-
-                        //saisie du nombre d'éléments à gérer dans le sous ensemble
-                        Console.Write("nombre d'éléments dans le sous ensemble = ");
                         nbSousEnsemble = saisie("nombre d'éléments dans le sous ensemble = ");
-                        // calcul de r1
                         long r1 = 1;
                         r1 = piProduit((nbElements - nbSousEnsemble + 1), nbElements, r1);
-                        // calcul de r2
                         long r2 = 1;
                         r2 = piProduit(1, nbSousEnsemble, r2);
                         Console.WriteLine("C(" + nbElements + "/" + nbSousEnsemble + ") = " + (r1 / r2));
